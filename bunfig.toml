@@ -1,0 +1,9 @@
+logLevel = "debug" # "debug" | "warn" | "error"
+smol = true
+telemetry = true
+
+[install]
+production = false
+peer = true
+dev = true
+optional = true
