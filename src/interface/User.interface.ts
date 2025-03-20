@@ -5,5 +5,5 @@ export interface IUser extends Document {
     name: string;
     email: string;
     password: string;
-    purchases: Schema.Types.ObjectId[];
+    // purchases: Schema.Types.ObjectId[];
 }

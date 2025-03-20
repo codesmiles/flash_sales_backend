@@ -1,11 +1,10 @@
 import { Document, Schema } from 'mongoose';
 
 export interface ISale extends Document{
-    product: Schema.Types.ObjectId;
-    initialStock: number;
-    currentStock: number;
-    startTime: Date;
-    endTime: Date;
-    isActive: boolean;
-    limitPerUser: number;
+    _id: Schema.Types.ObjectId;
+    price: number;
+    user_id: Schema.Types.ObjectId;
+    quantity: number;
+    is_promo: boolean;
+    product_id: Schema.Types.ObjectId;
 }

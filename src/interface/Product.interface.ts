@@ -5,4 +5,11 @@ export interface IProduct extends Document {
     name: string;
     description: string;
     price: number;
+    stock: number;
+    is_promo: boolean;
+    promo_conditions: {
+        name: string;
+        stock: number; 
+        price: number;
+    }
 }

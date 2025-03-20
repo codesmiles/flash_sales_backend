@@ -21,10 +21,10 @@ const UserSchema: Schema = new Schema<IUser>(
             minlength: 8,
             select: false
         },
-        purchases: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Purchase'
-        }]
+        // purchases: [{
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'Purchase'
+        // }]
     },
     {
         timestamps: true,

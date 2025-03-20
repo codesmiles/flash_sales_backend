@@ -38,9 +38,9 @@ GOOD LUCK!!!
 
 <!-- 
 MODELS
-PRODUCT: _id, _name, _description, _price, _stock, _flashSale, _flashSaleStart, _flashSaleEnd
-USER: _id, _name, _email, _password, _role, _purchases
-PURCHASE: _id, _product, _user, _quantity, _total, _date
 
+PRODUCT: _id, _name, _description, _price, _stock, _is_promo, _promo_quantity, _promo_condition{name:"string", description:"string"}
+USER: _id, _name, _email, _password, 
+SALES: _id, _product_id, _price, _stock, _is_promo, _quantity, _user_id
 
  -->
