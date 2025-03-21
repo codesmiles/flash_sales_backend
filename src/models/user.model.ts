@@ -1,5 +1,5 @@
-import { type IUser } from "../interface";
-import { Schema,model } from "mongoose";
+import { type IUser } from "../Interface";
+import { Schema, model } from "mongoose";
 
 const UserSchema: Schema = new Schema<IUser>(
     {
@@ -20,11 +20,7 @@ const UserSchema: Schema = new Schema<IUser>(
             required: [true, 'Please provide a password'],
             minlength: 8,
             select: false
-        },
-        // purchases: [{
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'Purchase'
-        // }]
+        }
     },
     {
         timestamps: true,

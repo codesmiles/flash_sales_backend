@@ -1,8 +1,8 @@
 import { Document, Schema } from 'mongoose';
 
-export interface IUser extends Document {
+export interface IPromo extends Document {
     _id: Schema.Types.ObjectId;
     name: string;
-    email: string;
-    password: string;
+    start_date: Date;
+    is_active: boolean;
 }

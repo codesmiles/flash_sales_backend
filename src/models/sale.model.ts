@@ -1,4 +1,4 @@
-import { type ISale } from "../interface";
+import { type ISale } from "../Interface";
 import { Schema, model } from "mongoose";
 
 const SaleSchema: Schema = new Schema<ISale>(
@@ -7,24 +7,24 @@ const SaleSchema: Schema = new Schema<ISale>(
       type: Number,
       required: [true, "A sale must have a price"],
     },
-    
+
     user_id: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: [true, "A sale must belong to a user"]
     },
-    
+
     quantity: {
       type: Number,
       required: [true, "A sale must have a quantity"],
     },
-    
+
     is_promo: {
       type: Boolean,
       required: [true, "A sale must have a promo status"],
-      default:  false
+      default: false
     },
-    
+
     product_id: {
       type: Schema.Types.ObjectId,
       ref: "Product",

@@ -1,3 +1,3 @@
-export * from "./user.model"
-export * from "./sale.model"
-export * from "./product.model"
+export * from "./User.model"
+export * from "./Sale.model"
+export * from "./Product.model"

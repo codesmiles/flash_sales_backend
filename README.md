@@ -42,5 +42,4 @@ MODELS
 PRODUCT: _id, _name, _description, _price, _stock, _is_promo, _promo_quantity, _promo_condition{name:"string", description:"string"}
 USER: _id, _name, _email, _password, 
 SALES: _id, _product_id, _price, _stock, _is_promo, _quantity, _user_id
-
- -->
+-->
