@@ -1,5 +1,5 @@
 import { Model, type FilterQuery, type UpdateQuery, type ClientSession } from "mongoose";
-import { PaginatedResponse } from "../Interface";
+import { type PaginatedResponse } from "../Interface";
 import { CrudOperationsEnum } from "../Helper";
 
 abstract class BaseAbstract<T, I> {

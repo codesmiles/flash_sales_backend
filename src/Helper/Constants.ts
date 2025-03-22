@@ -5,3 +5,8 @@ export enum CrudOperationsEnum {
     DELETE = "delete",
     FINDSINGLE = "findSingle",
 }
+
+export enum UserRoles {
+    ADMIN = "admin",
+    "USER" = 'user'
+}

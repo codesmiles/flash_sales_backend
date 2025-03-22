@@ -1,3 +1,4 @@
+import { UserRoles } from "../Helper";
 import { type IUser } from "../Interface";
 import { Schema, model } from "mongoose";
 
@@ -14,6 +15,12 @@ const UserSchema: Schema = new Schema<IUser>(
             unique: true,
             lowercase: true,
             match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        },
+        role: {
+            type: String,
+            required: true,
+            lowercase: true,
+            enum: Object.values(UserRoles)
         },
         password: {
             type: String,
@@ -34,10 +41,7 @@ UserSchema.pre('save', async function (next) {
     next();
 });
 
-// Password verification method
-UserSchema.methods.correctPassword = async (password: string, hash: string) => {
-    return await Bun.password.verify(password, hash);
-};
+
 
 
 export const User = model<IUser>("User", UserSchema);

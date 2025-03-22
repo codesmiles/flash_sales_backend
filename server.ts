@@ -1,5 +1,5 @@
 import express, { type Express, type Request, type Response } from "express";
-import { database } from "./src";
+import { database,limiter } from "./src";
 import routes from "./src/Routes";
 
 const app: Express = express();
@@ -7,6 +7,7 @@ const PORT = process.env.PORT ?? 12000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(limiter)
 app.use("/api/v1", routes);
 
 
