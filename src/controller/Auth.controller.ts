@@ -51,7 +51,7 @@ export const loginUser = async (req: Request, res: Response) => {
     }
 };
 
-export const forgotPassword = async (req: CustomRequest, res: Response) => {
+export const forgotPassword = async (req: Request, res: Response) => {
     try {
         const validate_req_payload = validator(validateForgotPassword, req.body);
         if (validate_req_payload) {
@@ -68,7 +68,7 @@ export const forgotPassword = async (req: CustomRequest, res: Response) => {
     }
 };
 
-export const resetPassword = async (req: CustomRequest, res: Response) => {
+export const resetPassword = async (req: Request, res: Response) => {
     try {
         const validate_req_payload = validator(validateResetPassword, req.body);
 

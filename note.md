@@ -27,9 +27,9 @@ app.get('/data/:id', cache, (req, res) ✅=> {
 });
 ```
 ## Endpoints
-- Auth: createUser, loginUser, forgotPassword, resetPassword✅
-- admin: createProduct, CreatePromo, activePromo, leaderboard
-- user: buyProduct, buyPromo, availablePromoProduct, leaderboard,
+- Auth: createUser✅, loginUser✅, forgotPassword✅, resetPassword✅
+- admin: createProduct✅, CreatePromo✅, activePromo✅, leaderboard
+- user: buyProduct, buyPromoproduct, availablePromoProduct, leaderboard,
 
 ## Features
 - authentication✅

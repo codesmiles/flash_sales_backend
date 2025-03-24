@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.772.0",
+    "@faker-js/faker": "^9.6.0",
     "express": "^4.21.2",
     "express-rate-limit": "^7.5.0",
     "joi": "^17.13.3",

@@ -13,7 +13,7 @@ const ProductSchema: Schema = new Schema<IProduct>(
             trim: true
         },
         price: {
-            type: Number,
+            type: String,
             required: [true, 'A product must have a price']
         },
         unit: {
@@ -36,7 +36,7 @@ const ProductSchema: Schema = new Schema<IProduct>(
                     default: 0
                 },
                 price: {
-                    type: Number,
+                    type: String,
                     required: function () {
                         return this.is_promo as boolean;
                     }
