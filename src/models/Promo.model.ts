@@ -23,6 +23,7 @@ const PromoSchema: Schema = new Schema<IPromo>(
         timestamps: true,
     }
 );
+PromoSchema.index({ is_active: 1, start_date: 1 })
 
 export const Promo = model<IPromo>("Promo", PromoSchema);
 

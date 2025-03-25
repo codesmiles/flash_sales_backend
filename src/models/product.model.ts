@@ -16,7 +16,7 @@ const ProductSchema: Schema = new Schema<IProduct>(
             type: String,
             required: [true, 'A product must have a price']
         },
-        unit: {
+        units: {
             type: Number,
             min: 0,
             required: [true, 'The stock for a product must be provided']
@@ -31,7 +31,7 @@ const ProductSchema: Schema = new Schema<IProduct>(
                     type: Schema.Types.ObjectId,
                     ref: 'Promo',
                 },
-                unit: {
+                units: {
                     type: Number,
                     default: 0
                 },

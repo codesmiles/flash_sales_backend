@@ -5,11 +5,11 @@ export interface IProduct extends Document {
     name: string;
     description: string;
     price: string;
-    unit: number;
+    units: number;
     is_promo: boolean;
     promo_details: {
         promo_id: Schema.Types.ObjectId;
-        unit: number; 
+        units: number; 
         price: string;
     }
 }
