@@ -12,7 +12,8 @@ abstract class UserAbstract {
     abstract loginUser(loginPayload: LoginType): Promise<object | null>;
     abstract createUser(payload:IUser): Promise<IUser | string>;
     abstract resetPassword(payload: resetPasswordType): Promise<boolean>;
-    abstract forgotPassword(forgotPasswordPayload: forgotPasswordType): Promise<boolean>;   
+    abstract forgotPassword(forgotPasswordPayload: forgotPasswordType): Promise<boolean>;
+    // abstract leaderBoard(): Promise<IUser[]>;
 }
 
 

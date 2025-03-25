@@ -11,7 +11,6 @@ abstract class AdminAbstract {
     abstract createPromoProduct(): Promise<PromoProductType | null>;
     abstract createPromo(payload:PromoType): Promise<IPromo | null >
     abstract activePromo(): Promise<IPromo[] | null>;
-    // abstract leaderboard(userId:string): Promise<ISale | null>;
    
 }
 

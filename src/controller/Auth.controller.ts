@@ -1,7 +1,6 @@
 import { UserService } from "../Services";
 import { type Response, type Request } from "express";
 import { validator, validateUser, validateLogin, validateForgotPassword, validateResetPassword } from "../Helper";
-import { type IUser, type CustomRequest } from "../Interface";
 
 
 const authService = new UserService();
