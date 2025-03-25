@@ -47,3 +47,19 @@ export const validateResetPassword = Joi.object({
   newPassword: Joi.string().required(),
   confirmNewPassword: Joi.string().required().valid(Joi.ref('newPassword')),
 });
+
+export const validateBuyProduct = Joi.object({
+  productId: Joi.string().required(),
+  units: Joi.number().positive().required(),
+})
+
+export const validateBuyPromoProduct = Joi.object({
+  productId: Joi.string().required(),
+  promoId: Joi.string().required(),
+  units: Joi.number().positive().required(),
+})
+export const validateAvailablePromoProduct = Joi.object({
+  promoId: Joi.string().required(),
+  per_page: Joi.number().positive().integer().required(),
+  current_page: Joi.number().positive().integer().required(),
+})

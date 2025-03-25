@@ -55,12 +55,6 @@ const ProductSchema: Schema = new Schema<IProduct>(
     }
 );
 
-// Custom validation to ensure promo_conditions is provided when has_promo is true
-// ProductSchema.pre('validate', function (next) {
-//     if (this.is_promo === true && (this.is_promo && !(this.promo_conditions as any)?.price)) {
-//         this.invalidate('promo_conditions.price', 'The price for this promo product must be provided');
-//     }
-//     next();
-// });
+ProductSchema.index({ "promo_details.promo_id": 1 });
 
 export const Product = model<IProduct>("Product", ProductSchema);
