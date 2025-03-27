@@ -1,7 +1,7 @@
-import { CustomerService,AvailablePromoProductType } from "../Services";
+import { CustomerService, type AvailablePromoProductType } from "../Services";
 import type {  Response, Request } from "express";
 import {startSession} from "mongoose";
-import { validator, validateBuyProduct,validateBuyPromoProduct,validateAvailablePromoProduct } from "../Helper";
+import { validator, validateBuyProduct, validateBuyPromoProduct, validateAvailablePromoProduct } from "../Helper";
 
 
 
@@ -52,17 +52,15 @@ export const purchase_promo_product = async (req: Request, res: Response) => {
 
     try {
         // validate incoming request
-        const validate_req_payload = validator(validateBuyProduct, req.body);
+        const validate_req_payload = validator(validateBuyPromoProduct, req.body);
         if (validate_req_payload) {
             return res.status(400).json(validate_req_payload);
         }
 
+        // start transaction
         session.startTransaction();
 
-        const purchase_promo_product = await customerService.buyPromoProduct(req.body);
-        // if (!purchase_promo_product) {
-        //     return res.status(400).json(toJson("Unable to purchase product", 400, null));
-        // }
+        const purchase_promo_product = await customerService.buyPromoProduct(req.body, session);
 
         await session.commitTransaction();
         console.log("Transaction committed successfully");

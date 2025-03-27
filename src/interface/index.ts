@@ -13,3 +13,12 @@ export interface PaginatedResponse<T> {
         totalPages: number;
     };
 }
+
+export interface SimplePaginatedResponse<T>{
+    data: T[];
+    meta: {
+        page: number;
+        total: number;
+        totalItems: number;
+    }
+}

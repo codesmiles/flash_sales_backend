@@ -15,10 +15,10 @@ const mongoConfig = {
     } as ConnectOptions,
 };
 
-export const database = () => {
+export const database = async () => {
     mongoose.set("strictQuery", true);
 
-    mongoose.connect(mongoConfig.mongoURI, mongoConfig.mongoSetup)
+    await mongoose.connect(mongoConfig.mongoURI, mongoConfig.mongoSetup)
         .then(() => {
             console.log("Successfully connected to the database.", mongoConfig.mongoURI);
         })

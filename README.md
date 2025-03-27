@@ -30,11 +30,11 @@ This assessment is to evaluate your ability to design and implement a robust, hi
    Handle race conditions and concurrency control
    Implement basic authentication
 
-Send your submission to emmanuel@smuv.africa with the subject “Backend Developer Assessment" which should include
+<!-- Send your submission to emmanuel@smuv.africa with the subject “Backend Developer Assessment" which should include
 A public and accessible github repository
 A clear README that clearly explains the steps to run the project.
 Submit on the deadline sent to your email
-GOOD LUCK!!!
+GOOD LUCK!!! -->
 
 <!-- 
 MODELS
