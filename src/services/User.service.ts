@@ -1,16 +1,17 @@
 import { User } from "../Models";
-import { MailDispatcher,confirmPassword,signJwt,generateRandomOTP } from "../Helper";
+import { MailDispatcher,confirmPassword,signJwt,generateRandomOTP, UserRoles } from "../Helper";
 import { CacheService } from "./Cache.service";
 
 import { type IUser } from "../Interface";
 
+type CreateUserType = { role:UserRoles, name:string, email: string, password: string };
 type LoginType = { email: string, password: string };
 type resetPasswordType = { otp:string,email: string, password: string };
 type forgotPasswordType = { email: string };
 
 abstract class UserAbstract {
     abstract loginUser(loginPayload: LoginType): Promise<object | null>;
-    abstract createUser(payload:IUser): Promise<IUser | string>;
+    abstract createUser(payload:CreateUserType): Promise<IUser | string>;
     abstract resetPassword(payload: resetPasswordType): Promise<boolean>;
     abstract forgotPassword(forgotPasswordPayload: forgotPasswordType): Promise<boolean>;
     // abstract leaderBoard(): Promise<IUser[]>;
@@ -23,7 +24,7 @@ export class UserService extends UserAbstract {
         super();
         this.cacheService = new CacheService();
     }
-    async createUser(payload: IUser): Promise<IUser | string> {
+    async createUser(payload: CreateUserType): Promise<IUser | string> {
         // check if the user already exists
         const findUser = await User.findOne({ email: payload.email });
         if (findUser) return "User already exists";
@@ -35,8 +36,7 @@ export class UserService extends UserAbstract {
 
     async loginUser(loginPayload:LoginType ): Promise<object | null> {
         // check if user exists
-        const user = await User.findOne({ email: loginPayload.email });
-
+        const user = await User.findOne({ email: loginPayload.email }).select('+password');
         if (!user || !(await confirmPassword(loginPayload.password, user.password))) return null
 
         // sign jwt token

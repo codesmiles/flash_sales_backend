@@ -21,3 +21,11 @@ export const checkJwt = (hash: string): JwtPayload | string => {
 export const generateRandomOTP = (length: number = 6): string => {
     return Math.floor(10 ** (length - 1) + Math.random() * 9 * 10 ** (length - 1)).toString();
 };
+
+export const toJson = (msg: string, status: number, data: unknown) => {
+    return {
+        message: msg,
+        status: status,
+        data: data
+    };
+}

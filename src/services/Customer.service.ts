@@ -28,7 +28,8 @@ export class CustomerService extends CustomerAbstract {
         );
         if (!product) throw new Error(`Invalid product | insufficient inventory | product not found | ${product}`);
 
-
+        console.log("Update product====",product)
+        
         // create a sales receipt
         const sales_payload = {
             is_promo: false,
@@ -43,7 +44,6 @@ export class CustomerService extends CustomerAbstract {
 
         // return a successful transaction and sales receipt
         return new_sale as ISale;
-
     }
 
     async buyPromoProduct(payload: BuyPromoProductType, session: ClientSession): Promise<ISale> {
@@ -85,6 +85,7 @@ export class CustomerService extends CustomerAbstract {
 
         if (!update_product) throw new Error(`Invalid product | insufficient inventory | product not found | ${update_product}`);
 
+        console.log("Update Product====",update_product)
         // create a sales receipt
         const sales_payload = {
             is_promo: true,

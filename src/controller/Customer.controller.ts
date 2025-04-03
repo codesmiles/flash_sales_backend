@@ -1,7 +1,8 @@
 import { CustomerService, type AvailablePromoProductType } from "../Services";
-import type {  Response, Request } from "express";
+import type {  Response } from "express";
 import {startSession} from "mongoose";
 import { validator, validateBuyProduct, validateBuyPromoProduct, validateAvailablePromoProduct } from "../Helper";
+import {type CustomRequest} from "../Interface"
 
 
 
@@ -16,7 +17,7 @@ const toJson = (msg: string, status: number, data: unknown) => {
 }
 
 // TODO: update this to an autheneticated route
-export const purchase_product = async (req: Request, res: Response) => {
+export const purchase_product = async (req: CustomRequest, res: Response) => {
     const session = await startSession();
 
     try {
@@ -47,7 +48,7 @@ export const purchase_product = async (req: Request, res: Response) => {
     }
 };
 
-export const purchase_promo_product = async (req: Request, res: Response) => { 
+export const purchase_promo_product = async (req: CustomRequest, res: Response) => { 
     const session = await startSession();
 
     try {
@@ -76,7 +77,7 @@ export const purchase_promo_product = async (req: Request, res: Response) => {
 }
 
 
-export const available_promo_product = async (req: Request, res: Response) => { 
+export const available_promo_product = async (req: CustomRequest, res: Response) => { 
     try {
         const query = {
             promoId: req.query.promoId as string,

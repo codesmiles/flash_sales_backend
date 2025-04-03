@@ -1,17 +1,11 @@
 import { AdminService } from "../Services";
 import { type Response, type Request } from "express";
-import { validator, validateUser, validateLogin, validateForgotPassword, validateResetPassword } from "../Helper";
+import { toJson } from "../Helper";
 
 
 const adminService = new AdminService();
 
-const toJson = (msg: string, status: number, data: unknown) => {
-    return {
-        message: msg,
-        status: status,
-        data: data
-    };
-}
+
 
 export const createPromo = async (req: Request, res: Response) => {
     try {

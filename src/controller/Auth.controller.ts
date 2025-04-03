@@ -1,17 +1,10 @@
 import { UserService } from "../Services";
 import { type Response, type Request } from "express";
-import { validator, validateUser, validateLogin, validateForgotPassword, validateResetPassword } from "../Helper";
-
+import { validator, validateUser, validateLogin, validateForgotPassword, validateResetPassword, toJson } from "../Helper";
 
 const authService = new UserService();
 
-const toJson = (msg: string, status: number, data: unknown) => {
-    return {
-        message: msg,
-        status: status,
-        data: data
-    };
-}
+
 
 export const createUser = async (req: Request, res: Response) => {
     try {

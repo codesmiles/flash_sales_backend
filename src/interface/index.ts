@@ -1,3 +1,6 @@
+import type { UserRoles } from "../Helper";
+import {type Request} from "express";
+
 export * from "./User.interface";
 export * from "./Sale.interface";
 export * from "./Product.interface";
@@ -21,4 +24,14 @@ export interface SimplePaginatedResponse<T>{
         total: number;
         totalItems: number;
     }
+}
+
+export type UserTokenDecrypted = {
+    email: string;
+    id: string;
+    role: UserRoles;
+};
+
+export interface CustomRequest extends Request {
+    user: UserTokenDecrypted;
 }
