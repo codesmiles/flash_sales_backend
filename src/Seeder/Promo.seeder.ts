@@ -8,16 +8,19 @@ const promo = {
     is_active: true,
 }
 
+const price = faker.commerce.price({ min: 100 })
+const discount = Number(price) - Math.floor(Math.random() * Number(price))
+
 const promoProduct = {
     name: faker.commerce.productName(),
     description: faker.commerce.productDescription(),
-    price: faker.commerce.price({ min: 2 }),
-    unit: 250,
+    price: price,
+    units: 250,
     is_promo: true,
     promo_details: {
         promo_id: "",
-        unit: 200,
-        price: faker.commerce.price({ min: 20 }),
+        units: 200,
+        price: faker.commerce.price({ max: discount }),
     },
 
 }
@@ -29,11 +32,14 @@ export const seed_promo_product = async ():Promise<{promo: IPromo,product: IProd
     promoProduct.promo_details.promo_id = newPromo.id;
     let newProduct = await Product.create(promoProduct);
     console.log(`Created Product: ${newProduct?.name}`);
-
-    return {
+    
+    const response = {
         promo: newPromo,
         product: newProduct,
-    }
+    };
+
+    console.log(response);
+    return response;
 }
 
 // export const users = faker.helpers.multiple(createRandomUser, {

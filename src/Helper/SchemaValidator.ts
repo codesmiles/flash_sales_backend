@@ -63,3 +63,8 @@ export const validateAvailablePromoProduct = Joi.object({
   per_page: Joi.number().positive().integer().required(),
   current_page: Joi.number().positive().integer().required(),
 })
+export const validateCreatePromo = Joi.object({
+  name: Joi.string().required(),
+  start_date: Joi.date().required(),
+  is_active: Joi.boolean().required(),
+})

@@ -40,6 +40,13 @@ app.get('/data/:id', cache, (req, res) ✅=> {
 - error handling
 - race condition and concurrency control
 
+## To Do 
+- modular type settings
+-  Proper validation process
+- Documentation
+- Tests
+- Proper reusable response formatting
+
  <!-- check if product for a promo is available  -->
  <!-- if yes update the promo with it's necessary promo condition -->
  <!-- if no seed in the products more than 200 allocated unit for flash sale promo -->

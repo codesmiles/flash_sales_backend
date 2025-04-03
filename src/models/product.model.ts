@@ -19,7 +19,7 @@ const ProductSchema: Schema = new Schema<IProduct>(
         units: {
             type: Number,
             min: 0,
-            required: [true, 'The stock for a product must be provided']
+            required: [true, 'The unit for a product must be provided']
         },
         is_promo: {
             type: Boolean,

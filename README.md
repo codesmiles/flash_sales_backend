@@ -43,3 +43,17 @@ PRODUCT: _id, _name, _description, _price, _stock, _is_promo, _promo_quantity, _
 USER: _id, _name, _email, _password, 
 SALES: _id, _product_id, _price, _stock, _is_promo, _quantity, _user_id
 -->
+
+
+```ts
+const obj: { [key: string]: string } = {
+    key1: 'value1',
+    key2: 'value2'
+}
+
+const getObj = (key: string): string => {
+    return obj[key] || 'Value does not exist';
+}
+
+console.log(getObj('key3')); // Output: value1
+```
